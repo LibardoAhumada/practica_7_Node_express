@@ -27,11 +27,11 @@
 
 
 ### 1.- Crear el repositorio, el README y el archivo README.ms e index.js.
-### Se asegura de ignorar la carpeta node_modules por medio del comando .gitignore y dentro de esta carpeta se usa el comando node_modeles/ para asegurar que la carpeta será ignorada al momento de subir el archivo a github.
+### Se asegura de ignorar la carpeta node_modules por medio del comando .gitignore y dentro de esta carpeta se usa el comando node_modules/ para asegurar que la carpeta será ignorada al momento de subir el archivo a github.
 #### crear commit
 
 ### 2.- Importar las dependencias:
-###  Instala las dependencias necesarias usando npm install express, fs (file system). estas pueden estar en las variables fs y express. usar los scripts start y dev en el archivo json.
+###  Se Instalan las dependencias necesarias usando npm install express, fs (file system). estas pueden estar en las variables fs y express. usar los scripts start y dev en el archivo json.
 #### crear commit 
 
 ### 3.- Configurar el servidor:
