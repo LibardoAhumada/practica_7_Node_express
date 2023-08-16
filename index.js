@@ -1,33 +1,56 @@
-const express = require("express");
-const server = express()
 const fs = require("fs");
-const { request } = require("http");
-server.use(express.json())
+const express = require("express");
+const server = express();
+server.use(express.json());
 
+
+let koders = fs.readFileSync("koders.json");
+//let koders = JSON.parse(kodersRead);
+
+
+
+// Lista de koders
 server.get("/koders", (request, response) => {
-    response.end("hola get")
-})
+    response.json(koders);
+});
 
 
+
+// Agregar un koder
 server.post("/koders", (request, response) => {
-    
-    fs.appendFileSync()
-    fs.writeFileSync("koders.json", contentAsObj, "utf-8")
+    koders.push(request.body);
 
-})
+    response.json({
+        message: "Koder added",
+        koders
+    });
+});
 
-const content = fs.readFileSync("koders.js", "utf-8");
+// Borrar un koder
+server.delete("/koders/:name", (request, response) => {
+    const koderExists = koders.find(
+        (koder) => koder.name === request.params.name
+    );
 
-const contentAsObj =(JSON.parse(content))
-contentAsObj.push(request)
+    if (!koderExists) {
+        response.status(404);
+        response.json({ message: "Koder not found" });
+        return;
+    }
 
-fs.unlinkSync()
+    const newKoders = koders.filter(
+        (koder) => koder.name !== request.params.name
+    );
+    koders = newKoders;
 
-fs.existsSync()
+    response.json({ message: "Koder deleted", koders });
+});
 
-
+server.delete("/koders", (request, response) => { 
+  koders = []
+  response.json({message: "All koders deleted",koders})
+});
 
 server.listen(8080, () => {
-    console.log("server listening on port 8080")
-})
-
+    console.log("Server listening on port 8080");
+});

@@ -43,7 +43,7 @@
 #### crear commit
 
 ### 5.- Registrar un nuevo koder [POST /Koders]:
-### se usa el request para saber que si se post entonces se debe de ejecutar la función de crear koder. 
+### se usa el request para saber que si la petición es post, entonces se debe de ejecutar la función de crear koder. 
 ### se pude usar fs.writeFileSync para escribir en el archivo de texto jason por lo que quizas necesite usar stringify o .JSON.
 #### crear commit
 
