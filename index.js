@@ -4,8 +4,8 @@ const server = express();
 server.use(express.json());
 
 
-let koders = fs.readFileSync("koders.json");
-//let koders = JSON.parse(kodersRead);
+let kodersRead = fs.readFileSync("koders.json");
+let koders = JSON.parse(kodersRead);
 
 
 
@@ -27,7 +27,7 @@ server.post("/koders", (request, response) => {
 });
 
 // Borrar un koder
-server.delete("/koders/:name", (request, response) => {
+server.delete("/koders", (request, response) => {
     const koderExists = koders.find(
         (koder) => koder.name === request.params.name
     );
@@ -47,7 +47,7 @@ server.delete("/koders/:name", (request, response) => {
 });
 
 server.delete("/koders", (request, response) => { 
-  koders = []
+  koders = [];
   response.json({message: "All koders deleted",koders})
 });
 
